@@ -1,0 +1,13 @@
+{
+  "name": "bot-planos-pix",
+  "version": "1.0.0",
+  "description": "Bot de planos com PIX direto",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0",
+    "mercadopago": "^1.5.17"
+  }
+}
