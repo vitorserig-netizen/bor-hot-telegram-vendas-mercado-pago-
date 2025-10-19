@@ -226,7 +226,7 @@ bot.onText(/\/start/, (msg) => {
 
   bot.sendMessage(
     chatId,
-    `🔥 *Oi amor, sei que cê tá doido querendo ver eu tocando uma guitarra!* 🎸\n\n*Escolha um dos planos abaixo:*`,
+    `🔥 *Oi amor, sei que cê tá doido querendo ver eu tocando uma guitarra!* 🎸\n\n*Experimente nosso plano de teste por apenas R$ 19,90!*\n\n*Escolha um dos planos abaixo:*`,
     { 
       parse_mode: 'Markdown',
       ...teclado
@@ -238,6 +238,7 @@ bot.onText(/\/start/, (msg) => {
 function verPlanos(chatId) {
   const teclado = {
     inline_keyboard: [
+      [{ text: "🔥 7 DIAS - R$ 19,90", callback_data: "plano_teste" }],
       [{ text: "🔥 15 DIAS - R$ 29,99", callback_data: "plano_15dias" }],
       [{ text: "🔥 VIP MENSAL - R$ 40,00", callback_data: "plano_mensal" }],
       [{ text: "🔥 6 MESES - R$ 150,00", callback_data: "plano_6meses" }]
@@ -246,7 +247,7 @@ function verPlanos(chatId) {
 
   bot.sendMessage(
     chatId,
-    `🎸 *PLANOS DISPONÍVEIS* 🔥\n\n*Escolha o seu plano:*`,
+    `🎸 *PLANOS DISPONÍVEIS* 🔥\n\n*💎 PLANO TESTE: 7 dias por apenas R$ 19,90*\n*Perfeito para conhecer nosso conteúdo!*\n\n*Escolha o seu plano:*`,
     { 
       parse_mode: 'Markdown',
       reply_markup: teclado 
@@ -437,6 +438,9 @@ bot.on('callback_query', (callbackQuery) => {
       case 'ver_planos':
         verPlanos(chatId);
         break;
+      case 'plano_teste':
+        processarPlano(chatId, 'plano_teste');
+        break;
       case 'plano_15dias':
         processarPlano(chatId, 'plano1');
         break;
@@ -478,7 +482,7 @@ bot.on('message', (msg) => {
 
     bot.sendMessage(
       msg.chat.id,
-      `🎸 *Oi amor! Quer ver eu tocando guitarra?* 🔥\n\n*Clique em VER PLANOS abaixo:*`,
+      `🎸 *Oi amor! Quer ver eu tocando guitarra?* 🔥\n\n*Experimente nosso plano de teste por apenas R$ 19,90!*\n\n*Clique em VER PLANOS abaixo:*`,
       { 
         parse_mode: 'Markdown',
         ...teclado
@@ -492,4 +496,5 @@ console.log('💳 Mercado Pago integrado');
 console.log('👥 Sistema de adição ao grupo ativo');
 console.log('⏰ Links expiram em 2 minutos');
 console.log('📊 Grupo ID:', GRUPO_ID);
+console.log('🎯 NOVO: Plano de 7 dias por R$ 19,90 adicionado!');
 console.log('🤖 @gotthgirlfriend_bot');

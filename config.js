@@ -11,6 +11,13 @@ module.exports = {
   GRUPO_ID: -1003148700987,
   
   PLANOS: {
+    plano_teste: {
+      nome: "🔥 7 DIAS - TESTE",
+      descricao: "Acesso por 7 dias para testar o conteúdo",
+      preco: "R$ 19,90",
+      precoNumero: 19.90,
+      dias: 7
+    },
     plano1: {
       nome: "🔥 15 DIAS",
       descricao: "Acesso por 15 dias ao conteúdo exclusivo",
